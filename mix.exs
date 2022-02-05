@@ -6,9 +6,15 @@ defmodule Nitroux.MixProject do
       app: :nitroux,
       version: "0.1.0",
       elixir: "~> 1.13",
+      name: "nitroux",
+      description: description(),
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
+  end
+
+  defp description() do
+    "Nitrogen-like templates for your Plug applictions"
   end
 
   # Run "mix help compile.app" to learn about applications.
