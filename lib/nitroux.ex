@@ -42,7 +42,7 @@ defmodule Nitroux do
 
   def h6(attrs), do: "a" |> tag(attrs)
 
-  def hr(attrs), do: "hr" |> tag(attrs, false)
+  def hr(), do: "hr" |> tag(%{}, false)
 
   def option(attrs), do: "option" |> tag(attrs)
 

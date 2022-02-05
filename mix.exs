@@ -15,7 +15,7 @@ defmodule Nitroux.MixProject do
   end
 
   defp description() do
-    "Nitrogen-like templates for your Plug applictions"
+    "Nitrogen-like templates for your Plug applications"
   end
 
   # Run "mix help compile.app" to learn about applications.
