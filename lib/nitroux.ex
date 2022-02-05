@@ -32,15 +32,15 @@ defmodule Nitroux do
 
   def h1(attrs), do: "h1" |> tag(attrs)
 
-  def h2(attrs), do: "a" |> tag(attrs)
+  def h2(attrs), do: "h2" |> tag(attrs)
 
-  def h3(attrs), do: "a" |> tag(attrs)
+  def h3(attrs), do: "h3" |> tag(attrs)
 
-  def h4(attrs), do: "a" |> tag(attrs)
+  def h4(attrs), do: "h4" |> tag(attrs)
 
-  def h5(attrs), do: "a" |> tag(attrs)
+  def h5(attrs), do: "h5" |> tag(attrs)
 
-  def h6(attrs), do: "a" |> tag(attrs)
+  def h6(attrs), do: "h6" |> tag(attrs)
 
   def hr(), do: "hr" |> tag(%{}, false)
 
@@ -50,11 +50,11 @@ defmodule Nitroux do
 
   def table(attrs), do: "table" |> tag(attrs)
 
-  def td(attrs), do: "a" |> tag(attrs)
+  def td(attrs), do: "td" |> tag(attrs)
 
-  def th(attrs), do: "a" |> tag(attrs)
+  def th(attrs), do: "th" |> tag(attrs)
 
-  def tr(attrs), do: "a" |> tag(attrs)
+  def tr(attrs), do: "tr" |> tag(attrs)
 
   def script(attrs), do: "script" |> tag(attrs)
 
