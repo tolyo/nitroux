@@ -37,8 +37,7 @@ defmodule Nitroux.MixProject do
     [
       name: "nitroux",
       # These are the default files included in the package
-      files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
-                license*),
+      files: ~w(lib .formatter.exs mix.exs README* LICENSE*),
       licenses: ["MIT License"],
       links: %{"GitHub" => "https://github.com/tolyo/nitroux"}
     ]
