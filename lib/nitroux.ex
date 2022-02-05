@@ -26,6 +26,8 @@ defmodule Nitroux do
 
   def form(attrs), do: "form" |> tag(attrs)
 
+  def img(attrs), do: "img" |> tag(attrs |> apply_static_prefix(:src), false)
+
   def input(attrs), do: "input" |> tag(attrs, false)
 
   def label(attrs), do: "label" |> tag(attrs)

@@ -48,4 +48,20 @@ defmodule Nitroux.Utils do
       false -> ""
     end
   end
+
+  def apply_static_prefix(attrs, key) do
+    updated =
+      case Map.has_key?(attrs, key) do
+        true ->
+          case Application.get_env(:nitroux, :static_prefix) do
+            nil ->
+              Map.get(attrs, key)
+            val ->
+              val <> Map.get(attrs, key)
+          end
+        false -> key
+      end
+
+    Map.replace(attrs, key, updated)
+  end
 end
