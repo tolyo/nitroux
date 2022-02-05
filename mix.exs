@@ -8,6 +8,7 @@ defmodule Nitroux.MixProject do
       elixir: "~> 1.13",
       name: "nitroux",
       description: description(),
+      package: package(),
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -29,6 +30,17 @@ defmodule Nitroux.MixProject do
     [
       {:plug, "~> 1.13", only: [:test]}
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+    ]
+  end
+
+  defp package() do
+    [
+      name: "nitroux",
+      # These are the default files included in the package
+      files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
+                license*),
+      licenses: ["MIT License"],
+      links: %{"GitHub" => "https://github.com/tolyo/nitroux"}
     ]
   end
 end
