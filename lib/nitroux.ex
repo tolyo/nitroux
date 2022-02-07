@@ -52,9 +52,13 @@ defmodule Nitroux do
 
   def table(attrs), do: "table" |> tag(attrs)
 
+  def tbody(attrs), do: "tbody" |> tag(attrs)
+
   def td(attrs), do: "td" |> tag(attrs)
 
   def th(attrs), do: "th" |> tag(attrs)
+
+  def thead(attrs), do: "thead" |> tag(attrs)
 
   def tr(attrs), do: "tr" |> tag(attrs)
 

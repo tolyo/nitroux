@@ -56,10 +56,13 @@ defmodule Nitroux.Utils do
           case Application.get_env(:nitroux, :static_prefix) do
             nil ->
               Map.get(attrs, key)
+
             val ->
               val <> Map.get(attrs, key)
           end
-        false -> key
+
+        false ->
+          key
       end
 
     Map.replace(attrs, key, updated)
