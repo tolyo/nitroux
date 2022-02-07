@@ -66,7 +66,7 @@ defmodule Nitroux do
 
   def section(attrs), do: "section" |> tag(attrs)
 
-  def select(attrs), do: "selection" |> tag(attrs)
+  def select(attrs), do: "select" |> tag(attrs)
 
   def span(attrs), do: "span" |> tag(attrs)
 end
