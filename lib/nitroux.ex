@@ -3,15 +3,12 @@ defmodule Nitroux do
   import Plug.Conn
 
   @moduledoc """
-  Documentation for `Nitroux`.
+    Documentation for `Nitroux`.
   """
 
   @doc """
-  ##
-
-      iex> Nitroux.a("test")
-      "<a>test</a>"
-
+    iex> Nitroux.a("test")
+    "<a>test</a>"
   """
   def a(attrs), do: "a" |> tag(attrs)
 
@@ -51,10 +48,11 @@ defmodule Nitroux do
 
   def html(attrs), do: "html" |> tag(attrs)
 
-  def hr(), do: "hr" |> tag(%{}, false)
+  def hr, do: "hr" |> tag(%{}, false)
 
   def link(attrs), do: "link" |> tag(attrs, false)
 
+  @spec main(binary | map) :: <<_::24, _::_*8>>
   def main(attrs), do: "main" |> tag(attrs)
 
   def meta(attrs), do: "meta" |> tag(attrs, false)
@@ -64,7 +62,9 @@ defmodule Nitroux do
   def option(attrs), do: "option" |> tag(attrs)
 
   def p(attrs), do: "p" |> tag(attrs)
+
   def script(attrs), do: "script" |> tag(attrs)
+
   def section(attrs), do: "section" |> tag(attrs)
 
   def select(attrs), do: "select" |> tag(attrs)
@@ -93,12 +93,13 @@ defmodule Nitroux do
 
   def li(attrs), do: "li" |> tag(attrs)
 
-  def content(conn, [_h | _t] = list) do
-    %{conn | resp_headers: [{"content-type", "text/html"}]}
-    |> send_resp(conn.status || 200, Enum.join(list, ""))
-  end
-
   def content(conn, data) do
+    data =
+      case data do
+        [_h | _t] -> Enum.join(data, "")
+        _ -> data
+      end
+
     %{conn | resp_headers: [{"content-type", "text/html"}]}
     |> send_resp(conn.status || 200, data)
   end
