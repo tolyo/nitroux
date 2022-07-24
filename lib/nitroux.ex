@@ -16,7 +16,11 @@ defmodule Nitroux do
 
   def body(attrs), do: "body" |> tag(attrs)
 
-  def br(attrs), do: "br" |> tag(attrs, false)
+  @doc """
+    iex> Nitroux.br()
+    "<br>"
+  """
+  def br(), do: "<br>"
 
   def button(attrs), do: "button" |> tag(attrs)
 
@@ -57,6 +61,7 @@ defmodule Nitroux do
 
   def meta(attrs), do: "meta" |> tag(attrs, false)
 
+  def nav(attrs), do: "nav" |> tag(attrs)
   def ol(attrs), do: "ol" |> tag(attrs)
 
   def option(attrs), do: "option" |> tag(attrs)
