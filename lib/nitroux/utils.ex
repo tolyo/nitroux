@@ -8,11 +8,19 @@ defmodule Nitroux.Utils do
     "<div>hello world</div>"
     Nitroux.Utils.tag("div", [])
     "<div>hello world</div>"
+    Nitroux.Utils.tag("div", [html: "hello world"])
+    "<div>hello world</div>"
   """
   def tag(name, attrs, container \\ true)
   def tag(name, attrs = %{}, false), do: "<#{name}#{add_attributes(attrs)}/>"
-  def tag(name, attrs = %{}, true), do: "<#{name}#{add_attributes(attrs)}>#{add_content(attrs)}</#{name}>"
-  def tag(name, [_h|_t] = list, _container), do: name |> tag(%{ html: Enum.join(list)})
+
+  def tag(name, attrs = %{}, true),
+    do: "<#{name}#{add_attributes(attrs)}>#{add_content(attrs)}</#{name}>"
+
+  def tag(name, [{_, _} | _t] = keywordlist, _container),
+    do: name |> tag(keywordlist |> Enum.into(%{}))
+
+  def tag(name, [_h | _t] = list, _container), do: name |> tag(%{html: Enum.join(list)})
   def tag(name, [], _container), do: name |> tag(%{}, true)
   def tag(name, text, _) when is_binary(text), do: "<#{name}>#{text}</#{name}>"
 
