@@ -1,15 +1,17 @@
 defmodule Nitroux.Utils do
   @doc """
     Generates dynamic open and closing tags around content
-  """
-
-  @doc """
     iex> Nitroux.Utils.tag("div", ["hello", " ", "world"])
     "<div>hello world</div>"
+
     Nitroux.Utils.tag("div", [])
     "<div>hello world</div>"
+
     Nitroux.Utils.tag("div", [html: "hello world"])
     "<div>hello world</div>"
+
+    Nitroux.Utils.tag("div", [class: "test", html: "hello world"])
+    "<div class=\"test\">hello world</div>"
   """
   def tag(name, attrs, container \\ true)
   def tag(name, attrs = %{}, false), do: "<#{name}#{add_attributes(attrs)}/>"
@@ -25,27 +27,20 @@ defmodule Nitroux.Utils do
   def tag(name, text, _) when is_binary(text), do: "<#{name}>#{text}</#{name}>"
 
   def add_attributes(attrs) do
-    res =
-      attrs
-      |> Enum.filter(fn {key, _val} ->
-        key !== :html
-      end)
-      |> Enum.map(fn {key, val} -> "#{key}=\"#{val}\"" end)
-      |> Enum.join(" ")
-
-    case res do
+    attrs
+    |> Enum.filter(fn {key, _val} ->
+      key !== :html
+    end)
+    |> Enum.map(fn {key, val} -> "#{key}=\"#{val}\"" end)
+    |> Enum.join(" ")
+    |> case do
       "" -> ""
-      _ -> " " <> res
+      res -> " " <> res
     end
   end
 
-  def add_content([h]) do
-    add_content(h)
-  end
-
-  def add_content([h | t]) do
-    h <> add_content(t)
-  end
+  def add_content([h]), do: add_content(h)
+  def add_content([h | t]), do: h <> add_content(t)
 
   def add_content(attrs) do
     case Map.has_key?(attrs, :html) do

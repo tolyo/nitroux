@@ -12,16 +12,27 @@ defmodule Nitroux do
   """
   def a(attrs), do: "a" |> tag(attrs)
 
+  @doc """
+    iex> Nitroux.b("test")
+    "<b>test</b>"
+  """
   def b(attrs), do: "b" |> tag(attrs)
 
+  @doc """
+  iex> Nitroux.br()
+  "<br>"
+  """
+  @spec body(binary | maybe_improper_list | map) :: <<_::24, _::_*8>>
   def body(attrs), do: "body" |> tag(attrs)
 
   @doc """
-    iex> Nitroux.br()
-    "<br>"
+  iex> Nitroux.br()
+  "<br>"
   """
+  @spec br :: String.t()
   def br(), do: "<br>"
 
+  @spec button(binary | maybe_improper_list | map) :: <<_::24, _::_*8>>
   def button(attrs), do: "button" |> tag(attrs)
 
   def div(attrs), do: "div" |> tag(attrs)
@@ -50,13 +61,17 @@ defmodule Nitroux do
 
   def head(attrs), do: "head" |> tag(attrs)
 
+  @spec header(binary | maybe_improper_list | map) :: <<_::24, _::_*8>>
+  def header(attrs), do: "header" |> tag(attrs)
+
   def html(attrs), do: "html" |> tag(attrs)
 
   def hr, do: "hr" |> tag(%{}, false)
 
+  @spec link(binary | maybe_improper_list | map) :: <<_::24, _::_*8>>
   def link(attrs), do: "link" |> tag(attrs, false)
 
-  @spec main(binary | map) :: <<_::24, _::_*8>>
+  @spec main(String.t() | map() | keyword()) :: <<_::24, _::_*8>>
   def main(attrs), do: "main" |> tag(attrs)
 
   def meta(attrs), do: "meta" |> tag(attrs, false)
