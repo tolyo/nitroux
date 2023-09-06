@@ -1,6 +1,36 @@
 # Nitroux
 
-**TODO: Add description**
+This library provides [Nitrogen](https://nitrogenproject.com/)-like templating for your Plug applications.
+
+## Usage
+
+Take this HTML as an example:
+
+`
+  <ul>
+    <li class="tab-1">Tab1</li>
+    <li class="tab-2">Tab2</li>
+    <li class="tab-3">Tab3</li>
+  </ul>
+`
+
+We don't think of HTML as code, but if we did, then we would have to admit that this example actually violates the DRY principle. Nitroux solves this problem by allowing us to think of HTML as code and to be dry. The above example becomes:
+
+`
+  import Nitroux
+
+  li(
+    1..3
+    |> Enum.map(fn x ->
+      li(
+        class: "tab-#{x}",
+        html: "Tab#{x}"
+      )
+    end)
+  )
+
+`
+
 
 ## Installation
 
