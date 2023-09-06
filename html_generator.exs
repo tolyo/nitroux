@@ -124,10 +124,23 @@ elements = [
 	"wbr",
 ]
 
+# As defined https://html.spec.whatwg.org/multipage/syntax.html#void-elements
+void_elements = [
+	"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"
+]
+
 generated_code = Enum.map(elements, fn e ->
-  """
-  def #{e}(attrs), do: "#{e}" |> tag(attrs)
-  """
+	if Enum.member?(void_elements, e) do
+		"""
+		@spec #{e}(binary | maybe_improper_list | map) :: binary
+		def #{e}(attrs), do: "#{e}" |> tag(attrs, false)
+		"""
+	else
+		"""
+		@spec #{e}(binary | maybe_improper_list | map) :: binary
+		def #{e}(attrs), do: "#{e}" |> tag(attrs)
+		"""
+	end
 end)
 
 acc = Enum.join(generated_code, "\n")
