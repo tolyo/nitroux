@@ -16,7 +16,7 @@ defmodule Nitroux.Utils do
     "<div class=\"test\">hello world</div>"
   """
   def tag(name, attrs, container \\ true)
-  def tag(name, attrs = %{}, false), do: "<#{name}#{add_attributes(attrs)} />"
+  def tag(name, attrs = %{}, false), do: "<#{name}#{add_attributes(attrs)}/>"
 
   def tag(name, attrs = %{}, true),
     do: "<#{name}#{add_attributes(attrs)}>#{add_content(attrs)}</#{name}>"
