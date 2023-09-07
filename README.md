@@ -19,7 +19,7 @@ We usually don't think of HTML as code, but if we were to treat it as such, woul
 ```elixir
   import Nitroux
 
-  li(
+  ul(
     1..3
     |> Enum.map(fn x ->
       li(
