@@ -2,7 +2,7 @@
 
 This library provides [Nitrogen](https://nitrogenproject.com/)-like templating for your Plug applications.
 
-  ## Usage
+## Rationale
 
 Take this HTML as an example:
 
