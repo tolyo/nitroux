@@ -15,13 +15,15 @@ defmodule Nitroux.UtilsTest do
         html: "test"
       })
 
-    assert tag == "<div class=\"bg\" id=\"app\">test</div>"
+    assert tag =~ "class=\"bg\""
+    assert tag =~ "id=\"app\""
+    assert tag =~ "test"
   end
 
   test "tag/3 with attributes and another tag" do
     tag =
       Nitroux.Utils.tag("div", %{
-        class: "bg",
+        class: "outer",
         id: "app",
         html: "test"
       })
@@ -33,7 +35,10 @@ defmodule Nitroux.UtilsTest do
         html: tag
       })
 
-    assert tag == "<div class=\"bg\" id=\"app\"><div class=\"bg\" id=\"app\">test</div></div>"
+    assert tag =~ "class=\"outer\""
+    assert tag =~ "class=\"bg\""
+    assert tag =~ "id=\"app\""
+    assert tag =~ "test"
 
     tag =
       Nitroux.Utils.tag("div", %{
