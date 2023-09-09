@@ -61,6 +61,8 @@ const fs = require("fs");
   // Wrap the element with some text (e.g., "Element: ")
   const wrappedElement = `
     defmodule Nitroux do
+    defmacro __using__(_opts) do
+    quote do
     import Nitroux.Utils
         ${extractedElements
           .map((e) => {
@@ -77,6 +79,8 @@ const fs = require("fs");
             }
           })
           .join("\n")}
+    end
+    end
     end
   `;
   fs.writeFileSync(outputFilePath, wrappedElement);

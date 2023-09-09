@@ -1,4 +1,4 @@
-defmodule Nitroux do
+defmodule Nitroux.HtmlTags do
   defmacro __using__(_opts) do
     quote do
       import Nitroux.Utils
