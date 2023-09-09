@@ -26,3 +26,7 @@ nitroux-*.tar
 /tmp/
 
 mix.lock
+
+node_modules
+
+package-lock.json

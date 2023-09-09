@@ -1,3 +1,3 @@
 build:
-	mix run html_generator.exs
+	node generator.js
 	mix format

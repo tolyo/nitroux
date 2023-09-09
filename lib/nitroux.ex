@@ -1,5 +1,6 @@
 defmodule Nitroux do
   import Nitroux.Utils
+
   @spec a(binary | maybe_improper_list | map) :: binary
   def a(attrs), do: "a" |> tag(attrs)
 
@@ -63,9 +64,6 @@ defmodule Nitroux do
   @spec colgroup(binary | maybe_improper_list | map) :: binary
   def colgroup(attrs), do: "colgroup" |> tag(attrs)
 
-  @spec command(binary | maybe_improper_list | map) :: binary
-  def command(attrs), do: "command" |> tag(attrs)
-
   @spec data(binary | maybe_improper_list | map) :: binary
   def data(attrs), do: "data" |> tag(attrs)
 
@@ -120,21 +118,6 @@ defmodule Nitroux do
   @spec h1(binary | maybe_improper_list | map) :: binary
   def h1(attrs), do: "h1" |> tag(attrs)
 
-  @spec h2(binary | maybe_improper_list | map) :: binary
-  def h2(attrs), do: "h2" |> tag(attrs)
-
-  @spec h3(binary | maybe_improper_list | map) :: binary
-  def h3(attrs), do: "h3" |> tag(attrs)
-
-  @spec h4(binary | maybe_improper_list | map) :: binary
-  def h4(attrs), do: "h4" |> tag(attrs)
-
-  @spec h5(binary | maybe_improper_list | map) :: binary
-  def h5(attrs), do: "h5" |> tag(attrs)
-
-  @spec h6(binary | maybe_improper_list | map) :: binary
-  def h6(attrs), do: "h6" |> tag(attrs)
-
   @spec head(binary | maybe_improper_list | map) :: binary
   def head(attrs), do: "head" |> tag(attrs)
 
@@ -168,9 +151,6 @@ defmodule Nitroux do
   @spec kbd(binary | maybe_improper_list | map) :: binary
   def kbd(attrs), do: "kbd" |> tag(attrs)
 
-  @spec keygen(binary | maybe_improper_list | map) :: binary
-  def keygen(attrs), do: "keygen" |> tag(attrs)
-
   @spec label(binary | maybe_improper_list | map) :: binary
   def label(attrs), do: "label" |> tag(attrs)
 
@@ -194,9 +174,6 @@ defmodule Nitroux do
 
   @spec menu(binary | maybe_improper_list | map) :: binary
   def menu(attrs), do: "menu" |> tag(attrs)
-
-  @spec menuitem(binary | maybe_improper_list | map) :: binary
-  def menuitem(attrs), do: "menuitem" |> tag(attrs)
 
   @spec meta(binary | maybe_improper_list | map) :: binary
   def meta(attrs), do: "meta" |> tag(attrs, false)
@@ -228,9 +205,6 @@ defmodule Nitroux do
   @spec p(binary | maybe_improper_list | map) :: binary
   def p(attrs), do: "p" |> tag(attrs)
 
-  @spec param(binary | maybe_improper_list | map) :: binary
-  def param(attrs), do: "param" |> tag(attrs)
-
   @spec picture(binary | maybe_improper_list | map) :: binary
   def picture(attrs), do: "picture" |> tag(attrs)
 
@@ -260,6 +234,9 @@ defmodule Nitroux do
 
   @spec script(binary | maybe_improper_list | map) :: binary
   def script(attrs), do: "script" |> tag(attrs)
+
+  @spec search(binary | maybe_improper_list | map) :: binary
+  def search(attrs), do: "search" |> tag(attrs)
 
   @spec section(binary | maybe_improper_list | map) :: binary
   def section(attrs), do: "section" |> tag(attrs)
