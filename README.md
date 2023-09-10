@@ -49,7 +49,7 @@ by adding `nitroux` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:nitroux, "~> 0.2.3"}
+    {:nitroux, "~> 0.3.0"}
   ]
 end
 ```
