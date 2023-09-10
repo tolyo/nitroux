@@ -9,11 +9,11 @@ defmodule Nitroux.UtilsTest do
 
   test "tag/3 with attributes and simple text" do
     tag =
-      Nitroux.Utils.tag("div", %{
+      Nitroux.Utils.tag("div", [
         class: "bg",
         id: "app",
         html: "test"
-      })
+      ])
 
     assert tag =~ "class=\"bg\""
     assert tag =~ "id=\"app\""
@@ -22,18 +22,18 @@ defmodule Nitroux.UtilsTest do
 
   test "tag/3 with attributes and another tag" do
     tag =
-      Nitroux.Utils.tag("div", %{
+      Nitroux.Utils.tag("div", [
         class: "outer",
         id: "app",
         html: "test"
-      })
+      ])
 
     tag =
-      Nitroux.Utils.tag("div", %{
+      Nitroux.Utils.tag("div", [
         class: "bg",
         id: "app",
         html: tag
-      })
+      ])
 
     assert tag =~ "class=\"outer\""
     assert tag =~ "class=\"bg\""
@@ -41,20 +41,20 @@ defmodule Nitroux.UtilsTest do
     assert tag =~ "test"
 
     tag =
-      Nitroux.Utils.tag("div", %{
+      Nitroux.Utils.tag("div", [
         html: "test"
-      })
+      ])
 
     tag =
-      Nitroux.Utils.tag("div", %{
+      Nitroux.Utils.tag("div", [
         html: [tag, tag]
-      })
+      ])
 
     assert tag == "<div><div>test</div><div>test</div></div>"
   end
 
   test "tag/3 with non-conteiner" do
-    tag = Nitroux.Utils.tag("input", %{}, false)
+    tag = Nitroux.Utils.tag("input", [], false)
 
     assert tag == "<input/>"
   end
