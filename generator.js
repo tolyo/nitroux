@@ -57,10 +57,10 @@ const fs = require("fs");
   }
 
   // Write the extracted elements to a text file
-  const outputFilePath = "lib/nitroux.ex";
+  const outputFilePath = "lib/nitroux/html_tags.ex";
   // Wrap the element with some text (e.g., "Element: ")
   const wrappedElement = `
-    defmodule Nitroux do
+    defmodule Nitroux.HtmlTags do
     defmacro __using__(_opts) do
     quote do
     import Nitroux.Utils
