@@ -69,7 +69,7 @@ const fs = require("fs");
             if (voidElements.includes(e)) {
               return `
                 @spec ${e}() :: binary
-                def ${e}(), do: "${e}" |> tag(nil, false)
+                def ${e}(), do: "${e}" |> tag([], false)
             `;
             } else {
               return `

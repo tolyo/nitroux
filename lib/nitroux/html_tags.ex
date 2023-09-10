@@ -13,7 +13,7 @@ defmodule Nitroux.HtmlTags do
       def address(attrs), do: "address" |> tag(attrs)
 
       @spec area() :: binary
-      def area(), do: "area" |> tag(nil, false)
+      def area(), do: "area" |> tag([], false)
 
       @spec article(binary | maybe_improper_list | map) :: binary
       def article(attrs), do: "article" |> tag(attrs)
@@ -28,7 +28,7 @@ defmodule Nitroux.HtmlTags do
       def b(attrs), do: "b" |> tag(attrs)
 
       @spec base() :: binary
-      def base(), do: "base" |> tag(nil, false)
+      def base(), do: "base" |> tag([], false)
 
       @spec bdi(binary | maybe_improper_list | map) :: binary
       def bdi(attrs), do: "bdi" |> tag(attrs)
@@ -43,7 +43,7 @@ defmodule Nitroux.HtmlTags do
       def body(attrs), do: "body" |> tag(attrs)
 
       @spec br() :: binary
-      def br(), do: "br" |> tag(nil, false)
+      def br(), do: "br" |> tag([], false)
 
       @spec button(binary | maybe_improper_list | map) :: binary
       def button(attrs), do: "button" |> tag(attrs)
@@ -61,7 +61,7 @@ defmodule Nitroux.HtmlTags do
       def code(attrs), do: "code" |> tag(attrs)
 
       @spec col() :: binary
-      def col(), do: "col" |> tag(nil, false)
+      def col(), do: "col" |> tag([], false)
 
       @spec colgroup(binary | maybe_improper_list | map) :: binary
       def colgroup(attrs), do: "colgroup" |> tag(attrs)
@@ -100,7 +100,7 @@ defmodule Nitroux.HtmlTags do
       def em(attrs), do: "em" |> tag(attrs)
 
       @spec embed() :: binary
-      def embed(), do: "embed" |> tag(nil, false)
+      def embed(), do: "embed" |> tag([], false)
 
       @spec fieldset(binary | maybe_improper_list | map) :: binary
       def fieldset(attrs), do: "fieldset" |> tag(attrs)
@@ -130,7 +130,7 @@ defmodule Nitroux.HtmlTags do
       def hgroup(attrs), do: "hgroup" |> tag(attrs)
 
       @spec hr() :: binary
-      def hr(), do: "hr" |> tag(nil, false)
+      def hr(), do: "hr" |> tag([], false)
 
       @spec html(binary | maybe_improper_list | map) :: binary
       def html(attrs), do: "html" |> tag(attrs)
@@ -142,10 +142,10 @@ defmodule Nitroux.HtmlTags do
       def iframe(attrs), do: "iframe" |> tag(attrs)
 
       @spec img() :: binary
-      def img(), do: "img" |> tag(nil, false)
+      def img(), do: "img" |> tag([], false)
 
       @spec input() :: binary
-      def input(), do: "input" |> tag(nil, false)
+      def input(), do: "input" |> tag([], false)
 
       @spec ins(binary | maybe_improper_list | map) :: binary
       def ins(attrs), do: "ins" |> tag(attrs)
@@ -163,7 +163,7 @@ defmodule Nitroux.HtmlTags do
       def li(attrs), do: "li" |> tag(attrs)
 
       @spec link() :: binary
-      def link(), do: "link" |> tag(nil, false)
+      def link(), do: "link" |> tag([], false)
 
       @spec main(binary | maybe_improper_list | map) :: binary
       def main(attrs), do: "main" |> tag(attrs)
@@ -178,7 +178,7 @@ defmodule Nitroux.HtmlTags do
       def menu(attrs), do: "menu" |> tag(attrs)
 
       @spec meta() :: binary
-      def meta(), do: "meta" |> tag(nil, false)
+      def meta(), do: "meta" |> tag([], false)
 
       @spec meter(binary | maybe_improper_list | map) :: binary
       def meter(attrs), do: "meter" |> tag(attrs)
@@ -253,7 +253,7 @@ defmodule Nitroux.HtmlTags do
       def small(attrs), do: "small" |> tag(attrs)
 
       @spec source() :: binary
-      def source(), do: "source" |> tag(nil, false)
+      def source(), do: "source" |> tag([], false)
 
       @spec span(binary | maybe_improper_list | map) :: binary
       def span(attrs), do: "span" |> tag(attrs)
@@ -307,7 +307,7 @@ defmodule Nitroux.HtmlTags do
       def tr(attrs), do: "tr" |> tag(attrs)
 
       @spec track() :: binary
-      def track(), do: "track" |> tag(nil, false)
+      def track(), do: "track" |> tag([], false)
 
       @spec u(binary | maybe_improper_list | map) :: binary
       def u(attrs), do: "u" |> tag(attrs)
@@ -322,7 +322,7 @@ defmodule Nitroux.HtmlTags do
       def video(attrs), do: "video" |> tag(attrs)
 
       @spec wbr() :: binary
-      def wbr(), do: "wbr" |> tag(nil, false)
+      def wbr(), do: "wbr" |> tag([], false)
     end
   end
 end
