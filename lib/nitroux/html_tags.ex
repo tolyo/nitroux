@@ -12,8 +12,8 @@ defmodule Nitroux.HtmlTags do
       @spec address(binary | maybe_improper_list | map) :: binary
       def address(attrs), do: "address" |> tag(attrs)
 
-      @spec area(binary | maybe_improper_list | map) :: binary
-      def area(attrs), do: "area" |> tag(attrs, false)
+      @spec area() :: binary
+      def area(), do: "area" |> tag(nil, false)
 
       @spec article(binary | maybe_improper_list | map) :: binary
       def article(attrs), do: "article" |> tag(attrs)
@@ -27,8 +27,8 @@ defmodule Nitroux.HtmlTags do
       @spec b(binary | maybe_improper_list | map) :: binary
       def b(attrs), do: "b" |> tag(attrs)
 
-      @spec base(binary | maybe_improper_list | map) :: binary
-      def base(attrs), do: "base" |> tag(attrs, false)
+      @spec base() :: binary
+      def base(), do: "base" |> tag(nil, false)
 
       @spec bdi(binary | maybe_improper_list | map) :: binary
       def bdi(attrs), do: "bdi" |> tag(attrs)
@@ -42,8 +42,8 @@ defmodule Nitroux.HtmlTags do
       @spec body(binary | maybe_improper_list | map) :: binary
       def body(attrs), do: "body" |> tag(attrs)
 
-      @spec br(binary | maybe_improper_list | map) :: binary
-      def br(attrs), do: "br" |> tag(attrs, false)
+      @spec br() :: binary
+      def br(), do: "br" |> tag(nil, false)
 
       @spec button(binary | maybe_improper_list | map) :: binary
       def button(attrs), do: "button" |> tag(attrs)
@@ -60,8 +60,8 @@ defmodule Nitroux.HtmlTags do
       @spec code(binary | maybe_improper_list | map) :: binary
       def code(attrs), do: "code" |> tag(attrs)
 
-      @spec col(binary | maybe_improper_list | map) :: binary
-      def col(attrs), do: "col" |> tag(attrs, false)
+      @spec col() :: binary
+      def col(), do: "col" |> tag(nil, false)
 
       @spec colgroup(binary | maybe_improper_list | map) :: binary
       def colgroup(attrs), do: "colgroup" |> tag(attrs)
@@ -99,8 +99,8 @@ defmodule Nitroux.HtmlTags do
       @spec em(binary | maybe_improper_list | map) :: binary
       def em(attrs), do: "em" |> tag(attrs)
 
-      @spec embed(binary | maybe_improper_list | map) :: binary
-      def embed(attrs), do: "embed" |> tag(attrs, false)
+      @spec embed() :: binary
+      def embed(), do: "embed" |> tag(nil, false)
 
       @spec fieldset(binary | maybe_improper_list | map) :: binary
       def fieldset(attrs), do: "fieldset" |> tag(attrs)
@@ -129,8 +129,8 @@ defmodule Nitroux.HtmlTags do
       @spec hgroup(binary | maybe_improper_list | map) :: binary
       def hgroup(attrs), do: "hgroup" |> tag(attrs)
 
-      @spec hr(binary | maybe_improper_list | map) :: binary
-      def hr(attrs), do: "hr" |> tag(attrs, false)
+      @spec hr() :: binary
+      def hr(), do: "hr" |> tag(nil, false)
 
       @spec html(binary | maybe_improper_list | map) :: binary
       def html(attrs), do: "html" |> tag(attrs)
@@ -141,11 +141,11 @@ defmodule Nitroux.HtmlTags do
       @spec iframe(binary | maybe_improper_list | map) :: binary
       def iframe(attrs), do: "iframe" |> tag(attrs)
 
-      @spec img(binary | maybe_improper_list | map) :: binary
-      def img(attrs), do: "img" |> tag(attrs, false)
+      @spec img() :: binary
+      def img(), do: "img" |> tag(nil, false)
 
-      @spec input(binary | maybe_improper_list | map) :: binary
-      def input(attrs), do: "input" |> tag(attrs, false)
+      @spec input() :: binary
+      def input(), do: "input" |> tag(nil, false)
 
       @spec ins(binary | maybe_improper_list | map) :: binary
       def ins(attrs), do: "ins" |> tag(attrs)
@@ -162,8 +162,8 @@ defmodule Nitroux.HtmlTags do
       @spec li(binary | maybe_improper_list | map) :: binary
       def li(attrs), do: "li" |> tag(attrs)
 
-      @spec link(binary | maybe_improper_list | map) :: binary
-      def link(attrs), do: "link" |> tag(attrs, false)
+      @spec link() :: binary
+      def link(), do: "link" |> tag(nil, false)
 
       @spec main(binary | maybe_improper_list | map) :: binary
       def main(attrs), do: "main" |> tag(attrs)
@@ -177,8 +177,8 @@ defmodule Nitroux.HtmlTags do
       @spec menu(binary | maybe_improper_list | map) :: binary
       def menu(attrs), do: "menu" |> tag(attrs)
 
-      @spec meta(binary | maybe_improper_list | map) :: binary
-      def meta(attrs), do: "meta" |> tag(attrs, false)
+      @spec meta() :: binary
+      def meta(), do: "meta" |> tag(nil, false)
 
       @spec meter(binary | maybe_improper_list | map) :: binary
       def meter(attrs), do: "meter" |> tag(attrs)
@@ -252,8 +252,8 @@ defmodule Nitroux.HtmlTags do
       @spec small(binary | maybe_improper_list | map) :: binary
       def small(attrs), do: "small" |> tag(attrs)
 
-      @spec source(binary | maybe_improper_list | map) :: binary
-      def source(attrs), do: "source" |> tag(attrs, false)
+      @spec source() :: binary
+      def source(), do: "source" |> tag(nil, false)
 
       @spec span(binary | maybe_improper_list | map) :: binary
       def span(attrs), do: "span" |> tag(attrs)
@@ -306,8 +306,8 @@ defmodule Nitroux.HtmlTags do
       @spec tr(binary | maybe_improper_list | map) :: binary
       def tr(attrs), do: "tr" |> tag(attrs)
 
-      @spec track(binary | maybe_improper_list | map) :: binary
-      def track(attrs), do: "track" |> tag(attrs, false)
+      @spec track() :: binary
+      def track(), do: "track" |> tag(nil, false)
 
       @spec u(binary | maybe_improper_list | map) :: binary
       def u(attrs), do: "u" |> tag(attrs)
@@ -321,8 +321,8 @@ defmodule Nitroux.HtmlTags do
       @spec video(binary | maybe_improper_list | map) :: binary
       def video(attrs), do: "video" |> tag(attrs)
 
-      @spec wbr(binary | maybe_improper_list | map) :: binary
-      def wbr(attrs), do: "wbr" |> tag(attrs, false)
+      @spec wbr() :: binary
+      def wbr(), do: "wbr" |> tag(nil, false)
     end
   end
 end

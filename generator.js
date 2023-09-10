@@ -68,8 +68,8 @@ const fs = require("fs");
           .map((e) => {
             if (voidElements.includes(e)) {
               return `
-                @spec ${e}(binary | maybe_improper_list | map) :: binary
-                def ${e}(attrs), do: "${e}" |> tag(attrs, false)
+                @spec ${e}() :: binary
+                def ${e}(), do: "${e}" |> tag(nil, false)
             `;
             } else {
               return `

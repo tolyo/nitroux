@@ -1,8 +1,6 @@
 defmodule Nitroux.Utils do
-  import Plug.Conn
-
   @doc """
-    Generates dynamic open and closing tags around content
+   Generates dynamic open and closing tags around content
     iex> Nitroux.Utils.tag("div", ["hello", " ", "world"])
     "<div>hello world</div>"
 
@@ -16,21 +14,18 @@ defmodule Nitroux.Utils do
     "<div class=\"test\">hello world</div>"
   """
   def tag(name, attrs, container \\ true)
-  def tag(name, attrs, false), do: "<#{name}#{add_attributes(attrs)}/>"
-
-  def tag(name, attrs = %{}, true),
-    do: "<#{name}#{add_attributes(attrs)}>#{add_content(attrs)}</#{name}>"
+  def tag(name, _, false), do: "<#{name}/>"
 
   def tag(name, [{_, _} | _t] = keywordlist, _container),
-    do: name |> tag(keywordlist |> Enum.into(%{}))
+    do: "<#{name}#{add_attributes(keywordlist)}>#{Keyword.get(keywordlist, :html, "")}</#{name}>"
 
-  def tag(name, [_h | _t] = list, _container), do: name |> tag(%{html: Enum.join(list)})
-  def tag(name, [], _container), do: name |> tag(%{}, true)
+  def tag(name, [_h | _t] = list, _container), do: name |> tag(html: Enum.join(list))
+  def tag(name, [], _container), do: name |> tag([], true)
   def tag(name, text, _) when is_binary(text), do: "<#{name}>#{text}</#{name}>"
 
-  def add_attributes(attrs) do
+  defp add_attributes(attrs) do
     attrs
-    |> Enum.filter(fn {key, _val} ->
+    |> Keyword.filter(fn {key, _} ->
       key !== :html
     end)
     |> Enum.map(fn {key, val} -> "#{key}=\"#{val}\"" end)
@@ -39,45 +34,5 @@ defmodule Nitroux.Utils do
       "" -> ""
       res -> " " <> res
     end
-  end
-
-  def add_content([h]), do: add_content(h)
-  def add_content([h | t]), do: h <> add_content(t)
-
-  def add_content(attrs) do
-    case Map.has_key?(attrs, :html) do
-      true -> Map.get(attrs, :html)
-      false -> ""
-    end
-  end
-
-  def apply_static_prefix(attrs, key) do
-    updated =
-      case Map.has_key?(attrs, key) do
-        true ->
-          case Application.get_env(:nitroux, :static_prefix) do
-            nil ->
-              Map.get(attrs, key)
-
-            val ->
-              val <> Map.get(attrs, key)
-          end
-
-        false ->
-          key
-      end
-
-    Map.replace(attrs, key, updated)
-  end
-
-  def content(conn, data) do
-    data =
-      case data do
-        [_h | _t] -> Enum.join(data, "")
-        _ -> data
-      end
-
-    %{conn | resp_headers: [{"content-type", "text/html"}]}
-    |> send_resp(conn.status || 200, data)
   end
 end
