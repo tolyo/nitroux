@@ -41,15 +41,16 @@ const fs = require("fs");
     // You can iterate through each row if needed
     for (const row of rows) {
       // Select the first <code> element within the row's <th>
-      const firstCodeElement = await row.$("th code a");
-
-      if (firstCodeElement) {
-        // Extract and print the text content of the first <code> element
-        const elementText = await firstCodeElement.textContent();
-        console.log("First element in the row:", elementText);
-        extractedElements.push(elementText);
+      const codeElements = await row.$$("th code a");
+      if (codeElements.length > 0) {
+        // Loop through each code element and extract its text content
+        for (const codeElement of codeElements) {
+          const elementText = await codeElement.textContent();
+          console.log("Element in the row:", elementText);
+          extractedElements.push(elementText);
+        }
       } else {
-        console.log("No first element found in the row.");
+        console.log("No code elements found in the row.");
       }
     }
   } else {

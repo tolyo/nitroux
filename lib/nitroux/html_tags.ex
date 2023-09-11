@@ -120,6 +120,21 @@ defmodule Nitroux.HtmlTags do
       @spec h1(binary | maybe_improper_list | map) :: binary
       def h1(attrs), do: "h1" |> tag(attrs)
 
+      @spec h2(binary | maybe_improper_list | map) :: binary
+      def h2(attrs), do: "h2" |> tag(attrs)
+
+      @spec h3(binary | maybe_improper_list | map) :: binary
+      def h3(attrs), do: "h3" |> tag(attrs)
+
+      @spec h4(binary | maybe_improper_list | map) :: binary
+      def h4(attrs), do: "h4" |> tag(attrs)
+
+      @spec h5(binary | maybe_improper_list | map) :: binary
+      def h5(attrs), do: "h5" |> tag(attrs)
+
+      @spec h6(binary | maybe_improper_list | map) :: binary
+      def h6(attrs), do: "h6" |> tag(attrs)
+
       @spec head(binary | maybe_improper_list | map) :: binary
       def head(attrs), do: "head" |> tag(attrs)
 
