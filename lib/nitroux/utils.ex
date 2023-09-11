@@ -14,7 +14,7 @@ defmodule Nitroux.Utils do
     "<div class=\"test\">hello world</div>"
   """
   def tag(name, attrs, container \\ true)
-  def tag(name, _, false), do: "<#{name}/>"
+  def tag(name, attrs, false), do: "<#{name}#{add_attributes(attrs)}/>"
 
   def tag(name, [{_, _} | _t] = keywordlist, _container),
     do: "<#{name}#{add_attributes(keywordlist)}>#{Keyword.get(keywordlist, :html, "")}</#{name}>"

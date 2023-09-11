@@ -57,5 +57,9 @@ defmodule Nitroux.UtilsTest do
     tag = Nitroux.Utils.tag("input", [], false)
 
     assert tag == "<input/>"
+
+    tag = Nitroux.Utils.tag("meta", [lang: "en"], false)
+
+    assert tag == "<meta lang=\"en\"/>"
   end
 end

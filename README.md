@@ -2,6 +2,45 @@
 
 This library provides [Nitrogen](https://nitrogenproject.com/)-like templating for your Plug applications.
 
+## Usage
+
+### Generate HTML
+
+Each `Nitroux` function represents an HTML tag and generates HTML content. Example:
+
+```elixir
+iex> Nitroux.hr()
+"<hr/>"
+```
+
+### Add text
+
+Each Nitroux function can accept text as a function parameter, allowing you to include text content within the generated tags:
+
+```elixir
+iex> Nitroux.div("hello world")
+"<div>hello wordl<div/>"
+```
+
+### Add attributes
+
+Each `Nitroux` function can accept keyword lists as function parameters. Each item in the list will
+be appended as an attribute to HTML. Hyphen-separated attributes should be passed as strings:
+
+```elixir
+iex> Nitroux.div(class: "red", id: "1", 'data-model': "2")
+"<div class=\"red\" id=\"1\" data-model=\"2\"><div/>"
+```
+
+### Add HTML child tags
+
+If `html` key is present, its value is treated as HTML content. `html` value can be a string, a `Nitroux` function, or a list thereof.
+
+```elixir
+iex> Nitroux.div(html: p("hello world"))
+"<div><p>hello world</p></div/>"
+```
+
 ## Rationale
 
 Take this HTML as an example:
@@ -40,7 +79,6 @@ Nitroux offers an alternative approach. Instead of reinventing HTML with a custo
 Nitroux is an ideal choice for scenarios involving [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components), lightweight JavaScript frameworks like [Alpine JS](https://alpinejs.dev/) or [Stimulus](https://stimulus.hotwired.dev/), or comprehensive HTML/XML parsers like [Owl](https://odoo.github.io/owl/) or the now-deprecated [AngularJS](https://angularjs.org/). It simplifies the development process and promotes cleaner, more maintainable code that even novice frontend developers can maintain.
 
 
-
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
@@ -49,10 +87,11 @@ by adding `nitroux` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:nitroux, "~> 0.3.0"}
+    {:nitroux, "~> 0.3"}
   ]
 end
 ```
+
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
