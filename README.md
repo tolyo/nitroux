@@ -46,11 +46,11 @@ iex> Nitroux.div(html: p("hello world"))
 Take this HTML as an example:
 
 ```html
-  <ul>
-    <li class="tab-1">Tab1</li>
-    <li class="tab-2">Tab2</li>
-    <li class="tab-3">Tab3</li>
-  </ul>
+<ul>
+  <li class="tab-1">Tab1</li>
+  <li class="tab-2">Tab2</li>
+  <li class="tab-3">Tab3</li>
+</ul>
 ```
 
 We usually don't think of HTML as code, but if we were to treat it as such, would have to admit that this example does not adhere to the DRY (Don't Repeat Yourself) principle. Nitroux solves this problem by allowing us to think of HTML as code, while keeping our maintenance burden to the minimum. The above example becomes:
@@ -78,7 +78,6 @@ Nitroux offers an alternative approach. Instead of reinventing HTML with a custo
 
 Nitroux is an ideal choice for scenarios involving [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components), lightweight JavaScript frameworks like [Alpine JS](https://alpinejs.dev/) or [Stimulus](https://stimulus.hotwired.dev/), or comprehensive HTML/XML parsers like [Owl](https://odoo.github.io/owl/) or the now-deprecated [AngularJS](https://angularjs.org/). It simplifies the development process and promotes cleaner, more maintainable code that even novice frontend developers can maintain.
 
-
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
@@ -92,8 +91,6 @@ def deps do
 end
 ```
 
-
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at <https://hexdocs.pm/nitroux>.
-

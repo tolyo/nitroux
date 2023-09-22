@@ -62,6 +62,9 @@ const fs = require("fs");
   // Wrap the element with some text (e.g., "Element: ")
   const wrappedElement = `
     defmodule Nitroux.HtmlTags do
+
+    # AUTO GENERATED. DO NOT EDIT
+
     defmacro __using__(_opts) do
     quote do
     import Nitroux.Utils
@@ -69,12 +72,12 @@ const fs = require("fs");
           .map((e) => {
             if (voidElements.includes(e)) {
               return `
-                @spec ${e}(binary | maybe_improper_list | map) :: binary
+                @spec ${e}(String.t() | Nitroux.Types.GlobalAttributes.t) :: binary
                 def ${e}(attrs), do: "${e}" |> tag(attrs, false)
             `;
             } else {
               return `
-                @spec ${e}(binary | maybe_improper_list | map) :: binary
+                @spec ${e}(String.t() | Nitroux.Types.GlobalAttributes.t) :: binary
                 def ${e}(attrs), do: "${e}" |> tag(attrs)
             `;
             }
