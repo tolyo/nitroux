@@ -76,7 +76,9 @@ Imagine dealing with evolving business requirements that involve intricate condi
 
 Nitroux offers an alternative approach. Instead of reinventing HTML with a custom DSL, it encourages you to treat all HTML as pure Elixir functions. This approach assumes that you want to leverage your existing front-end tools while minimizing the abstraction layers between your Elixir models and the front-end. With Nitroux, you can bid farewell to `.eex` templates and eliminate the proliferation of empty `_view` files that often clutter Phoenix projects.
 
-Nitroux is an ideal choice for scenarios involving [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components), lightweight JavaScript frameworks like [Alpine JS](https://alpinejs.dev/) or [Stimulus](https://stimulus.hotwired.dev/), or comprehensive HTML/XML parsers like [Owl](https://odoo.github.io/owl/) or the now-deprecated [AngularJS](https://angularjs.org/). It simplifies the development process and promotes cleaner, more maintainable code that even novice frontend developers can maintain.
+Nitroux is an ideal choice for scenarios involving [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components), lightweight JavaScript frameworks like [Alpine JS](https://alpinejs.dev/), [HTMX](https://htmx.org/),  [Stimulus](https://stimulus.hotwired.dev/), or comprehensive HTML/XML parsers like [Owl](https://odoo.github.io/owl/) or the now-deprecated [AngularJS](https://angularjs.org/). It simplifies the development process and promotes cleaner, more maintainable code that even novice frontend developers can maintain.
+
+For a starter template using Nitroux in a [Phoenix Application](https://www.phoenixframework.org/), check out [PHX-Boilerplate](https://github.com/tolyo/phx-boilerplate).
 
 ## Installation
 
