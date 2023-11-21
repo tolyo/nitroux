@@ -34,23 +34,25 @@ fs.readFile(filePath, "utf8", (err, data) => {
         # AUTO GENERATED DO NOT EDIT
 
         @type t :: [${attributeList
-            .map((e) => {
-                return `
+          .map((e) => {
+            return `
                     ${e.name}: ${e.name},
                 `;
-            })
-            .join("")}]
+          })
+          .join("")}]
 
         ${attributeList
-        .map((e) => {
+          .map((e) => {
             return `
                     @typedoc """
                     ${e.description}
                     """
-                    @type ${e.name} :: ${e.ty == "String" ? "String.t()" : "bool"}
+                    @type ${e.name} :: ${
+                      e.ty == "String" ? "String.t()" : "bool"
+                    }
                 `;
-        })
-        .join("\n")}
+          })
+          .join("\n")}
         end
         `;
     fs.writeFileSync(outputFilePath, wrappedElement);

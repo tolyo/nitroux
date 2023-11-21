@@ -5,3 +5,6 @@ build:
 
 lint:
 	npx prettier ./generator --write
+
+setup:
+	npx playwright install

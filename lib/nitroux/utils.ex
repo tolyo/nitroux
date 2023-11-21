@@ -1,6 +1,6 @@
 defmodule Nitroux.Utils do
   @type tag :: String.t()
-  @spec tag(any, Nitroux.Types.GlobalAttributes.t() | [tag] | tag, any) :: <<_::24, _::_*8>>
+  @spec tag(any, Nitroux.Types.GlobalAttributes.t() | [tag] | tag, any) :: tag()
   @doc """
    Generates dynamic open and closing tags around content
     iex> Nitroux.Utils.tag("div", ["hello", " ", "world"])
@@ -18,6 +18,7 @@ defmodule Nitroux.Utils do
   def tag(name, attrs, container \\ true)
   def tag(name, attrs, false), do: "<#{name}#{add_attributes(attrs)}/>"
   def tag(name, [], _container), do: name |> tag("", true)
+
   def tag(name, [{_, _} | _t] = keywordlist, _container),
     do: "<#{name}#{add_attributes(keywordlist)}>#{Keyword.get(keywordlist, :html, "")}</#{name}>"
 

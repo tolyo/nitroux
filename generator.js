@@ -70,17 +70,10 @@ const fs = require("fs");
     import Nitroux.Utils
         ${extractedElements
           .map((e) => {
-            if (voidElements.includes(e)) {
               return `
                 @spec ${e}(String.t() | Nitroux.Types.GlobalAttributes.t) :: binary
-                def ${e}(attrs), do: "${e}" |> tag(attrs, false)
-            `;
-            } else {
-              return `
-                @spec ${e}(String.t() | Nitroux.Types.GlobalAttributes.t) :: binary
-                def ${e}(attrs), do: "${e}" |> tag(attrs)
-            `;
-            }
+                def ${e}(attrs), do: "${e}" |> tag(attrs ${voidElements.includes(e) ? ", false" : ""})
+            `
           })
           .join("\n")}
     end
