@@ -45,8 +45,8 @@ const fs = require("fs");
   } else {
     console.log("No rows found in the table.");
   }
-  const outputFilePath = "lib/nitroux/html_tags.ex";
-  const wrappedElement = `
+  let outputFilePath = "lib/nitroux/html_tags.ex";
+  let wrappedElement = `
     defmodule Nitroux.HtmlTags do
 
     # AUTO GENERATED. DO NOT EDIT
@@ -57,7 +57,7 @@ const fs = require("fs");
         ${extractedElements
           .map((e) => {
               return `
-                @spec ${e}(String.t() | Nitroux.Types.GlobalAttributes.t) :: binary
+                @spec ${e}(map() | [Nitroux.Utils.tag()] | Nitroux.Utils.tag()) :: Nitroux.Utils.tag()
                 def ${e}(attrs), do: "${e}" |> tag(attrs ${voidElements.includes(e) ? ", false" : ""})
             `
           })
@@ -67,7 +67,30 @@ const fs = require("fs");
     end
   `;
   fs.writeFileSync(outputFilePath, wrappedElement);
+  
 
+  outputFilePath = "lib/nitroux/html_typed_tags.ex";
+  wrappedElement = `
+    defmodule Nitroux.HtmlTypedTags do
+
+    # AUTO GENERATED. DO NOT EDIT
+
+    defmacro __using__(_opts) do
+    quote do
+    import Nitroux.Utils
+        ${extractedElements
+          .map((e) => {
+              return `
+                @spec ${e}(Nitroux.Types.GlobalAttributes.t(), [Nitroux.Utils.tag()] | Nitroux.Utils.tag()) :: [Nitroux.Utils.tag()] | Nitroux.Utils.tag()
+                def ${e}(attrs, content), do: "${e}" |> tag(attrs, content ${voidElements.includes(e) ? ", false" : ""})
+            `
+          })
+          .join("\n")}
+    end
+    end
+    end
+  `;
+  fs.writeFileSync(outputFilePath, wrappedElement);
   // Close the browser
   await browser.close();
 })();

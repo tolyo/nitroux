@@ -4,7 +4,7 @@ defmodule Nitroux.MixProject do
   def project do
     [
       app: :nitroux,
-      version: "0.3.3",
+      version: "0.4.0",
       elixir: "~> 1.13",
       name: "nitroux",
       description: description(),

@@ -6,7 +6,7 @@ This library provides [Nitrogen](https://nitrogenproject.com/)-like templating f
 
 ### Generate HTML
 
-Each `Nitroux` function represents an HTML tag and generates HTML content. Example:
+Each `Nitroux` function represents an HTML tag and generates HTML content:
 
 ```elixir
 iex> Nitroux.hr()
@@ -41,6 +41,16 @@ iex> Nitroux.div(html: p("hello world"))
 "<div><p>hello world</p></div/>"
 ```
 
+### Use typed version
+
+If you want additional type hints and don't mind additional verbosity, use `Nitroux.HtmlTypedTags` module. Instead of `html` key in keyword parameters, content is passed via a second parameter, which can be either a tag or a list of tags. 
+
+```elixir
+iex> Nitroux.HtmlTypedTags.div([class: "red"], Nitroux.HtmlTypedTags.p([], "hello world"))
+"<div class=\"red\"><p>hello world</p></div/>"
+```
+
+
 ## Rationale
 
 Take this HTML as an example:
@@ -53,7 +63,7 @@ Take this HTML as an example:
 </ul>
 ```
 
-We usually don't think of HTML as code, but if we were to treat it as such, would have to admit that this example does not adhere to the DRY (Don't Repeat Yourself) principle. Nitroux solves this problem by allowing us to think of HTML as code, while keeping our maintenance burden to the minimum. The above example becomes:
+We usually don't think of HTML as code, but if we were to treat it as such, we would have to admit that this example does not adhere to the DRY (Don't Repeat Yourself) principle. Nitroux solves this problem by allowing us to think of HTML as code, while keeping our maintenance burden to the minimum. The above example becomes:
 
 ```elixir
   import Nitroux
@@ -88,7 +98,7 @@ by adding `nitroux` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:nitroux, "~> 0.3"}
+    {:nitroux, "~> 0.4"}
   ]
 end
 ```

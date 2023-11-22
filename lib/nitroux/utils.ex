@@ -1,6 +1,7 @@
 defmodule Nitroux.Utils do
+  alias Nitroux.Types.GlobalAttributes
   @type tag :: String.t()
-  @spec tag(any, Nitroux.Types.GlobalAttributes.t() | [tag] | tag, boolean()) :: tag()
+  @spec tag(any, map() | [tag] | tag, boolean()) :: tag()
   @doc """
   Generates dynamic open and closing tags around content
   iex> Nitroux.Utils.tag("div", [])
@@ -22,6 +23,16 @@ defmodule Nitroux.Utils do
 
   def tag(name, [_h | _t] = list, _container), do: name |> tag(html: Enum.join(list))
   def tag(name, text, _) when is_binary(text), do: "<#{name}>#{text}</#{name}>"
+
+  @spec typed_tag(String.t(), GlobalAttributes.t(), [tag()] | tag(), boolean()) :: tag()
+  def typed_tag(name, attrs, content, container \\ true)
+  def typed_tag(name, attrs, _, false), do: "<#{name}#{add_attributes(attrs)}/>"
+
+  def typed_tag(name, attrs, [_h | _t] = list, true),
+    do: "<#{name}#{add_attributes(attrs)}>#{Enum.join(list)}</#{name}>"
+
+  def typed_tag(name, attrs, content, true),
+    do: "<#{name}#{add_attributes(attrs)}>#{content}</#{name}>"
 
   defp add_attributes(attrs) do
     attrs
