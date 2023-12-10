@@ -57,7 +57,7 @@ const fs = require("fs");
         ${extractedElements
           .map((e) => {
               return `
-                @spec ${e}(map() | [Nitroux.Utils.tag()] | Nitroux.Utils.tag()) :: Nitroux.Utils.tag()
+                @spec ${e}(Keyword.t()| map() | [Nitroux.Utils.tag()] | Nitroux.Utils.tag()) :: Nitroux.Utils.tag()
                 def ${e}(attrs), do: "${e}" |> tag(attrs ${voidElements.includes(e) ? ", false" : ""})
             `
           })
