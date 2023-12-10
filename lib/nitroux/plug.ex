@@ -1,6 +1,10 @@
 defmodule Nitroux.Plug do
   import Plug.Conn
 
+  @spec content(
+          Plug.Conn.t(),
+          binary() | maybe_improper_list()
+        ) :: Plug.Conn.t()
   def content(conn, data) do
     data =
       case data do
@@ -9,6 +13,6 @@ defmodule Nitroux.Plug do
       end
 
     %{conn | resp_headers: [{"content-type", "text/html"}]}
-    |> send_resp(conn.status || 200, data)
+    |> resp(conn.status || 200, data)
   end
 end

@@ -4,7 +4,7 @@ defmodule Nitroux.MixProject do
   def project do
     [
       app: :nitroux,
-      version: "0.4.0",
+      version: "0.4.1",
       elixir: "~> 1.13",
       name: "nitroux",
       description: description(),
@@ -28,8 +28,9 @@ defmodule Nitroux.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:plug, "~> 1.13", runtime: false},
-      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+      {:plug, "~> 1.13"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.4.2", only: [:dev]}
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
   end
