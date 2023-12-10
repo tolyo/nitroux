@@ -1,7 +1,7 @@
 defmodule Nitroux.Utils do
   alias Nitroux.Types.GlobalAttributes
   @type tag :: String.t()
-  @spec tag(any, map() | [tag] | tag, boolean()) :: tag()
+  @spec tag(any, Keyword.t() | map() | [tag] | tag, boolean()) :: tag()
   @doc """
   Generates dynamic open and closing tags around content
   iex> Nitroux.Utils.tag("div", [])
