@@ -12,7 +12,8 @@ defmodule Nitroux.Plug do
         _ -> data
       end
 
-    %{conn | resp_headers: [{"content-type", "text/html"}]}
+    conn
+    |> put_resp_header("content-type", "text/html")
     |> resp(conn.status || 200, data)
   end
 end
